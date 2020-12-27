@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign in for Restaurant</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <img src = "person-icon.png" class="avatar">
+            <h1 style="color: rgb(30, 10, 56);">Sign in  for Restaurant</h1>
+            <div  style="color: red; font-style: italic;  font-size: 14px;   font-weight: 400;margin-bottom: 10px;">
+                <% error.forEach((i)=>{%>
+                 <li><%-i%></li>
+                 <%})%>
+             </div>
+            <form action="/restaurant" method="POST">
+                <input name="username" type="text" placeholder="Email" value="<%-username%>">
+                <input name="password" type="password" placeholder="Password">
+                <div class="submit">
+                  <input type="submit" value="Login">
+                  </div>
+                </form>
+          
+        <div class="text">
+            <input type="checkbox" name="remember" checked="checked"> Remember me
+            <a href="/restaurant/forgotpass">Forgot Password ?</a>
+            </div>
+            <div class="submit">
+              <a href="/restaurant/registerforres" >Sign up for Restaurant</a>
+           </div>
+           <div class="link">
+            <a href="/login"><img src="/person-icon.png" style="width: 50px; height: 50px;"></a>
+               </div>
+        </div>
+        <div id="overlay-area"></div>
+    </body>
+</html>

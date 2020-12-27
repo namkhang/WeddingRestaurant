@@ -1,0 +1,392 @@
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #eeeeee;
+} 
+#main{
+    width: 1270px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+}
+.feature__news-content{
+    background-color: #fff;
+    border-radius: 6px;
+    padding-bottom: 10px;
+}
+.feature__news_list{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.feature__news-title-content{
+    font-size: 22px;
+    margin-top: 20px;
+    margin-left: 10px;
+    padding: 15px 0 0 0;
+}
+.feature__news-title-content::after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background-color: red;
+}
+.feature__news_item{
+    margin-right: 10px;
+    padding: 10px;
+    /* overflow: hidden; */
+}
+.feature__news_img{
+    overflow: hidden;
+}
+.feature__news_item-img{
+   width: 28rem;
+   height: auto;
+   border: 1px solid #eee;
+   border-radius: 5px;
+   transition: all ease-in 0.2s;
+}
+.feature__news_item-title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    line-height: 1.3rem;
+}
+.feature__news_item-title > a{
+    color: #000;
+}
+.feature__news_item-title > a:hover{
+    text-decoration: none;
+    color: #c7422a;
+}
+.feature__news_item-desc{
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    overflow: hidden;
+    color: #454545;
+}
+.feature__news_item-footer-date{
+    font-size: 12px;
+    color: #828383;
+}
+.feature__news_item-footer-category{
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: 600;
+}
+.icon-clock:before {
+    content: "";
+    background-image: url(https://png.pngtree.com/png-vector/20190116/ourmid/pngtree-vector-clock-icon-png-image_322077.jpg);
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    vertical-align: text-bottom;
+    clear: both;
+    background-size: cover;
+}
+ul.feature__news-footer-list{
+    list-style: none;
+    padding: 0;
+}
+li.feature__news-footer-item{
+    display: flex;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.feature__news-footer-item-img{
+    width: 15rem;
+    transition: all ease-in 0.2s;
+}
+.feature__news-footer-item-content{
+    margin-left: 10px;
+}
+.feature__news-footer-item-content-title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+/* .feature__news-footer-item-content-title > a{
+    color: #000;
+}
+.feature__news-footer-item-content-title > a:hover{
+    text-decoration: none;
+    color: tomato;
+} */
+.feature__news-footer-item-contentitem{
+    margin-top: 8px;
+}
+.feature__news-footer-item-innercontent{
+    font-size: 14px;
+    line-height: 1.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    overflow: hidden;
+    color: #454545;
+    padding-right: 20px;
+}
+.feature__news-footer-item-content-link{
+    color: #000;
+}
+.feature__news-footer-item-content-link:hover{
+    text-decoration: none;
+    color: tomato;
+}
+.topic__news{
+    background-color: white;
+    padding-bottom: 10px;
+}
+.recomment-restaurants{
+    margin-top: 10px;
+    background-color: white;
+}
+.title-recomment{
+    margin-bottom: 15px;
+}
+.title-recomment-text{
+    font-size: 1.3rem;
+    padding: 15px;
+    background-image: linear-gradient(0,#c7422a,#f12d0a);
+    color: white;
+    border-radius: 5px;
+    text-transform: uppercase;   
+}
+.owl-carousel{
+    padding: 0 10px 0 10px;
+}
+.information-img{
+    border-radius: 5px;
+    transition: all ease-in 0.2s;
+}
+.infomation-restaurant{
+    margin: 8px 0 0 0;
+    font-weight: 600;
+    line-height: 1.3rem;
+}
+.infomation-restaurant>a{
+    color: #000;
+}
+.infomation-restaurant>a:hover{
+    text-decoration: none;
+    color: tomato;
+}
+/* CSS SIDEBAR LEFT  */
+.sidebar__left{
+    margin-top: 19px;
+    background-color: white;
+    border-radius: 5px;
+}
+.search__news{
+    padding: 10px 0 10px 0;
+}
+.search{
+    width: 100%;
+    border-radius: 20px;
+    border-color: #828383;
+    outline: none;
+    box-shadow: none;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+}
+.most_viewed_articles{
+    background-color:  #eeeeee;
+}
+.most_viewed_articles-title{
+    background-color: #d02028;
+}
+.most_viewed_articles-title-text{
+    color: #fff;
+    padding: 6px;
+    font-weight: 600;
+}
+ul.most_viewed_articles-list{
+    list-style: none;
+    padding: 0;
+}
+li.most_viewed_articles-item{
+    display: flex;
+    padding: 5px 0 5px 0;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.most_viewed_articles-item-title{
+    color: #000;
+    line-height: 1.3rem;
+    margin-left: 7px;
+    font-size: 14px;
+}
+.most_viewed_articles-item-title:hover{
+    color: tomato;
+}
+.adv-img{
+    width: 300px;
+    transition: all ease-in 0.2s;
+}
+.adv-item{
+    margin-bottom: 10px;
+}
+img:hover{
+    transform: scale(1.1);
+    background-size:cover;
+    overflow: hidden;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #fff;
+}
+
+.bg-dark{
+    background-color: #2E5366 !important;
+}
+.navbar-brand{
+    font-weight: 800;
+    font-size: 20px;
+    font-family: cursive;   
+}
+.navbar-dark .navbar-nav .nav-link{
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+.navbar-dark .navbar-nav .nav-item{
+    margin: 0 5px;
+}
+.navbar-dark .navbar-nav .nav-item .active{
+    color: blue !important;
+}
+.form-control{
+    width: 100px;
+}
+.gh{
+    color: #fff;
+    font-size: 25px;
+    margin-left: 10px;
+}
+/*thêm span cho giỏ hàng start*/
+.icon-cart{
+    font-size: 20px;
+    color: #fff;
+    display: block;
+    position: relative;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.attr-nav > a span.badge {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    right: 5px;
+    font-size: 10px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    padding-top: 2px;
+    background-color: #f43438;
+}
+.badge{
+    display: inline-block;
+    min-width: 10px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+/*thêm span giỏ hàng end*/
+.sgout{
+    color: #fff;
+    margin-left: 5px;
+    font-size: 15px;
+
+}
+/*sửa lại*/
+.dangxuat{
+    width: 80px;
+    font-size: 13px;
+    border-radius: 20px;
+}
+
+/*footer*/
+.footer{
+    background-color: #2E5366 !important;
+    margin-top: 60px;
+}
+.footer-cha {
+    line-height: 40px;
+    display: table;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0px 20px 0px;
+    color: #fff;
+}
+.footer-trai {
+    line-height: 35px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #2b5639;
+}
+.footer-phai {
+    width: 100%;
+    float: left;
+    line-height: 31px;
+    color: #fff !Important;
+    text-align: center;
+}
+img.logos {
+    border-radius: 20px;
+    margin-top: -10px;
+}
+.m1, .m2, .m3 {
+    height: 277px;
+    border-right: 1px solid #2b5639;
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 0px 10px;
+}   
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: -10px;
+}
+p.diachi{
+    margin: 0 0 10px;
+    font-size: 12px;
+}
+p.sub-m {
+    padding: 5px;
+    border-bottom: 1px dashed #fff;
+}
+.img-icon{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}

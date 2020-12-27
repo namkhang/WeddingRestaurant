@@ -1,0 +1,428 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: #fff;
+}
+
+.bg-dark{
+	background-color: #2E5366 !important;
+}
+.navbar-brand{
+	font-weight: 800;
+	font-size: 20px;
+	font-family: cursive;	
+}
+.navbar-dark .navbar-nav .nav-link{
+	font-weight: 600;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+.navbar-dark .navbar-nav .nav-item{
+	margin: 0 5px;
+}
+.navbar-dark .navbar-nav .nav-item .active{
+	color: blue !important;
+}
+.form-control{
+	width: 100px;
+}
+.gh{
+	color: #fff;
+	font-size: 25px;
+    margin-left: 10px;
+}
+/*thêm span cho giỏ hàng start*/
+.icon-cart{
+	font-size: 20px;
+	color: #fff;
+    display: block;
+    position: relative;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.attr-nav > a span.badge {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    right: 5px;
+    font-size: 10px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    padding-top: 2px;
+    background-color: #f43438;
+}
+.badge{
+    display: inline-block;
+    min-width: 10px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+/*sửa lại đăng xuất*/
+.name-li{
+    font-size: 12px;
+    color: black;
+
+}
+.cbYxcp{
+    font-size: 15px;
+}
+.lneWsb{
+    cursor: pointer;
+    margin: 0px 0px 0px 25px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-size: 20px ;
+    position: relative;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.9px;
+}
+li.lneWsb:hover div.cVRwHa{
+    display: block;
+}
+div.cVRwHa {
+    display: none;
+    border: 1px solid rgb(239, 239, 239);
+    background: rgb(255, 255, 255);
+    list-style: none;
+    border-radius: 0px 0px 3px 3px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 12px 0px;
+    position: absolute;
+    top: 30px;
+    left: calc(50% + 10px);
+    transform: translateX(-64%);
+    
+}
+.cVRwHa::before {
+    border-width: 9px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255);
+    border-image: initial;
+    margin-left: -9px;
+    bottom: 100%;
+    left: 50%;
+    content: " ";
+    height: 0px;
+    width: 0px;
+    position: absolute;
+    pointer-events: none;
+}
+ul.sub-menu{
+    display: inline-block;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+ul.sub-menu li{
+  
+    display: block;
+    min-width: 135px;
+}
+
+ul.sub-menu li a {
+    cursor: pointer;
+    display: inline-block;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+    padding: 8px 10px;
+    color: rgb(51, 51, 51);
+    font-size: 12px;
+    font-weight: 400;
+    text-decoration: none;
+    list-style: none;
+}
+ul.sub-menu li a:hover{
+    background-color: rgb(245, 244, 245);
+    color: #2E5366;
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+}
+
+/*phan giua trái*/
+.hosome{
+    padding: 20px 30px;
+    background: #f8f9fa;
+}
+.hoso{
+   display: inline-flex;
+   padding: 10px;
+   border-bottom:1px solid #d2d4d6;
+}
+.icon-user{
+    color: #d2d4d6;
+    font-size: 50px;
+}
+.icon-user:hover{
+    color: #d2d4d6;
+    font-size: 50px;
+}
+.nameuser{
+    margin: 20px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+.suahoso{
+    text-decoration: none;
+    color: #d2d4d6;
+}
+.suahoso i{
+    font-size: 17px;
+    margin: 45px -77px;
+}
+.suahoso p{
+    font-size: 15px;
+    margin: -65px -57px;
+}
+.suahoso:hover{
+    color: #d2d4d6;
+    text-decoration: none;
+}
+.tkcuatoi{
+    padding: 10px 0;
+}
+a.taikhoan{
+    display: flex;
+}
+a.taikhoan i{
+    color: #ffc107;
+    font-size: 22px;
+    display: flex;
+}
+a.taikhoan p{
+    margin: 0 10px;
+    color: black;
+    font-size: 15px;
+}
+a.taikhoan p:hover,
+ul.tkct li a:hover{
+    color: red;
+    text-decoration: none;
+}
+ul.tkct li{
+    list-style: none;
+    padding: 10px 30px;
+}
+ul.tkct li a{
+    color: black;
+    font-size: 15px;
+}
+a.taikhoan i.xanh{
+   color: blue;
+}
+/*Phần giữa*/
+.qlhoso{
+    background: #fff;
+}
+.quanly{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.quanly .hsct{
+    margin-bottom: 0;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+}
+.quanly .tenql{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.formtt{
+    padding: 25px 10px;
+}
+.formtt .form-dn {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px 0px 15px;
+}
+.formtt .input-label {
+    min-width: 120px;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    display: block;
+    padding: 0;
+    margin-bottom: 0;
+}
+.formtt .form-dn > div {
+    display: flex;
+    
+}
+.formtt .form-dn input {
+    width: 430px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 10px;
+}
+.form-dn .change-button {
+    text-transform: capitalize;
+    font-weight: 400;
+    text-decoration: underline;
+    border: none;
+    color: blue;
+    background: #fff;
+    margin: 0px 0px 15px;
+}
+.Radio-gt {
+    display: flex;
+    margin-right: 15px;
+    width: 80px;
+}
+.form-dn .Radio-gt .icon-name{
+    width: 25px;
+    margin-right: 10px;
+}
+.form-dn .Radio-gt .label{
+    margin-top: 5px;
+    color: black;
+}
+.form-dn .style-ns > div {
+    display: flex;
+    flex: 1 1 0%;
+    position: relative;
+    z-index: 1;
+}
+.style-ns select {
+    width: 100px;
+    border: 1px solid black;
+    height: 34px;
+    padding: 6px 12px;
+    line-height: 34px;
+    outline: none;
+    border-radius: 4px;
+    margin: 0px 12px 0px 0px;
+    background: 0px center;
+    box-shadow: none;
+    font-size: 15px;
+}
+.form-dn .btn-submit {
+    border: 0px;
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
+    background-color: #2E5366;
+    cursor: pointer;
+    margin-left: 120px;
+}
+.anhuser{
+    border-left: 1px solid black;
+    margin-top: 30px;
+    display: block;
+}
+.anhuser i{ 
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    margin-bottom: 15px;
+    color: #d2d4d6;
+}
+.anhuser .chonanh{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background: #2E5366;
+    color: #fff;
+    padding: 2px;
+    font-size: 14px;
+    width: 95px;
+}
+.anhuser label{
+    color: #d2d4d6;
+    margin: 0px;
+    font-size: 14px;
+
+}
+/*footer*/
+.footer{
+    background-color: #2E5366 !important;
+}
+.footer-cha {
+    line-height: 40px;
+    display: table;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0px 20px 0px;
+    color: #fff;
+}
+.footer-trai {
+    line-height: 35px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #2b5639;
+}
+.footer-phai {
+    width: 100%;
+    float: left;
+    line-height: 31px;
+    color: #fff !Important;
+    text-align: center;
+}
+img.logos {
+    border-radius: 20px;
+    margin-top: -10px;
+}
+.m1, .m2, .m3 {
+    height: 277px;
+    border-right: 1px solid #2b5639;
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 0px 10px;
+}   
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: -10px;
+}
+p.diachi{
+    margin: 0 0 10px;
+    font-size: 12px;
+}
+p.sub-m {
+    padding: 5px;
+    border-bottom: 1px dashed #fff;
+}
+.img-icon{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0;
+}

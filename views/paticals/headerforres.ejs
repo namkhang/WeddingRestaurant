@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+	<div class="container-fluid"> 
+	  <img src="/W.WR.png"style="width: 70px ;height: 60px; margin-right: 5px"><a class="navbar-brand" href="/restaurant">Wedding Restaurant</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	  </button>
+	     <form class="form-inline my-2 my-lg-0" action="/restaurant/search" method="GET">
+		  <input class="form-control mr-sm-3" type="search" placeholder="Tìm kiếm" aria-label="Search" name="q"  style="width: 250px;">
+		  <button type="submit"><i class="fa fa-search"
+			aria-hidden="true"></i></button>
+	    </form>
+	    <!-- COL-AUTO START  -->
+	    <div class="ml-auto" >
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+		    <ul class="navbar-nav mr-auto" >
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/restaurant">Trang chủ</a>
+			  </li>
+			  <li class="nav-item active">
+		        <a class="nav-link" href="/restaurant/news">Tin tức</a>
+			  </li>	  
+			  <li class="nav-item active">
+		        <a class="nav-link" href="/restaurant/policy">Chính sách</a>
+		      </li>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/restaurant/listchat">Tin nhắn</a>
+		      </li>
+			</ul>
+			
+			<li class="lneWsb"> 
+				<i class="fa fa-user-circle" aria-hidden="true"></i>
+				<span class="cbYxcp"><%-fullname%></span>
+				<ul class="sub-menu">
+					<li>
+						<a class="name-li" href="/restaurant/post">
+							Đăng bài
+						</a>
+					</li>
+					<li>
+						<a class="name-li" href="/restaurant/updatepost">
+							Cập nhật bài đăng
+						</a>
+					</li>
+					<li>
+						<a class="name-li" href="/restaurant/myorder">
+							Đơn hàng của tôi
+						</a>
+					</li>
+					<li>
+						<a class="name-li" href="/restaurant/updatepass">
+							Đổi mật khẩu
+						</a>
+					</li>
+					<li>
+						<a class="name-li" id="dangxuat" href="/restaurant/logout">
+							Đăng xuất
+						</a>
+					</li>
+				</ul>
+		  	</li>
+	  </div>
+	</div>
+	 <!-- COL-AUTO END -->
+  </div>
+</nav> 

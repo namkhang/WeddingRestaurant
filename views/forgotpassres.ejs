@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forgot Password</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <h1 style="color: rgb(30, 10, 56);">Forgot Password Restaurant</h1>
+            <div style="color: red; font-style: italic;  font-size: 14px;   font-weight: 400;margin-bottom: 10px;">
+                <% error.forEach((i)=>{%>
+                 <li><%-i%></li>
+                 <%})%>
+             </div>
+            <form action="/restaurant/forgotpass" method="POST">
+                <input name="email"   type="text" placeholder="Email">
+                <div class="submit" style="margin-top: 50px;">
+                  <input type="submit" value="Lấy lại password">
+                  </div>
+                </form>
+    
+        <div class="link">
+         <a href="/restaurant"><img src="/W.WR.png" style="width: 60px; height: 60px;"></a>
+            </div>
+        </div>
+        <div id="overlay-area"></div>
+    </body>
+</html>

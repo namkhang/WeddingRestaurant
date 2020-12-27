@@ -1,0 +1,450 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: #fff;
+}
+
+.bg-dark{
+	background-color: #2E5366 !important;
+}
+.navbar-brand{
+	font-weight: 800;
+	font-size: 20px;
+	font-family: cursive;	
+}
+.navbar-dark .navbar-nav .nav-link{
+	font-weight: 600;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+.navbar-dark .navbar-nav .nav-item{
+	margin: 0 5px;
+}
+.navbar-dark .navbar-nav .nav-item .active{
+	color: blue !important;
+}
+.form-control{
+	width: 250px;
+}
+.gh{
+	color: #fff;
+	font-size: 25px;
+    margin-left: 10px;
+}
+.form-inline button{
+    padding: 5px;
+    border-radius: 12px;
+    position: absolute;
+    left: 540px;
+    top: 20px;
+    border: none;
+    outline: none;
+    background: #fff;
+}
+
+/*thêm span cho giỏ hàng start*/
+.icon-cart{
+	font-size: 20px;
+	color: #fff;
+    display: block;
+    position: relative;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.attr-nav > a span.badge {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    right: 5px;
+    font-size: 10px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    padding-top: 2px;
+    background-color: #f43438;
+}
+.badge{
+    display: inline-block;
+    min-width: 10px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+/*thêm span giỏ hàng end*/
+.icon-cart{
+	font-size: 20px;
+	color: #fff;
+    display: block;
+    position: relative;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+.attr-nav > a span.badge {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    right: 5px;
+    font-size: 10px;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+    padding-top: 2px;
+    background-color: #f43438;
+}
+.badge{
+    display: inline-block;
+    min-width: 10px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+/*thêm span giỏ hàng end*/
+.sgout{
+	color: #fff;
+	margin-left: 5px;
+	font-size: 15px;
+
+}
+.dangxuat{
+	width: 80px;
+	font-size: 13px;
+	border-radius: 20px;
+}
+
+
+/*phần menu*/
+
+.name-li{
+  font-size: 12px;
+  color: black;
+
+}
+.cbYxcp{
+  font-size: 13px;
+  margin-left: 8px;
+}
+.lneWsb{
+  cursor: pointer;
+  margin: 0px 0px 0px 25px;
+  -webkit-box-align: center;
+  align-items: center;
+  display: inline-flex;
+  color: rgb(255, 255, 255);
+  font-size: 20px ;
+  position: relative;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.9px;
+}
+li.lneWsb:hover ul{
+  display: block;
+}
+li.lneWsb > ul {
+  display: none;
+  border: 1px solid rgb(239, 239, 239);
+  background: rgb(255, 255, 255);
+  list-style: none;
+  border-radius: 0px 0px 3px 3px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 12px 0px;
+  position: absolute;
+  top: 30px;
+  left: calc(50% + 10px);
+  transform: translateX(-64%);
+  
+}
+li.lneWsb > ul::before {
+  border-width: 9px;
+  border-style: solid;
+  border-color: transparent transparent rgb(255, 255, 255);
+  border-image: initial;
+  margin-left: -9px;
+  bottom: 100%;
+  left: 50%;
+  content: " ";
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  pointer-events: none;
+}
+li.lneWsb > ul::after {
+  content: " ";
+  background: transparent;
+  height: 20px;
+  width: 150px;
+  top: -20px;
+  left: calc(50% - 65px);
+  position: absolute;
+  display: inline-block;
+}
+/*li.lneWsb > ul.sub-menu{
+  display: block;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}*/
+
+li.lneWsb > ul.sub-menu > li{
+  display: block;
+  min-width: 135px;
+}
+
+li.lneWsb > ul.sub-menu > li > a {
+  cursor: pointer;
+  display: inline-block;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  margin: 0px;
+  padding: 8px 10px;
+  color: rgb(51, 51, 51);
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  list-style: none;
+}
+li.lneWsb > ul.sub-menu > li > a:hover{
+  background-color: rgb(245, 244, 245);
+  color: #2E5366;
+  font-weight: 600;
+  text-decoration: none;
+  width: 100%;
+}
+
+
+/*phan giua trái*/
+.hosome{
+    padding: 20px 30px;
+    background: #f8f9fa;
+}
+.hoso{
+   display: inline-flex;
+   padding: 10px;
+   border-bottom:1px solid #d2d4d6;
+}
+.icon-user{
+    color: #d2d4d6;
+    font-size: 50px;
+}
+.icon-user:hover{
+    color: #d2d4d6;
+    font-size: 50px;
+}
+.nameuser{
+    margin: 20px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+}
+.suahoso{
+    text-decoration: none;
+    color: #d2d4d6;
+}
+.suahoso i{
+    font-size: 17px;
+    margin: 45px -77px;
+}
+.suahoso p{
+    font-size: 15px;
+    margin: -65px -57px;
+}
+.suahoso:hover{
+    color: #d2d4d6;
+    text-decoration: none;
+}
+.tkcuatoi{
+    padding: 10px 0;
+}
+a.taikhoan{
+    display: flex;
+}
+a.taikhoan i{
+    color: #ffc107;
+    font-size: 22px;
+    display: flex;
+}
+a.taikhoan p{
+    margin: 0 10px;
+    color: black;
+    font-size: 15px;
+}
+a.taikhoan p:hover,
+ul.tkct li a:hover{
+    color: red;
+    text-decoration: none;
+}
+ul.tkct li{
+    list-style: none;
+    padding: 10px 30px;
+}
+ul.tkct li a{
+    color: black;
+    font-size: 15px;
+}
+a.taikhoan i.xanh{
+   color: blue;
+}
+/*Phần giữa*/
+.qlhoso{
+    background: #fff;
+}
+.quanly{
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+.quanly .hsct{
+    margin-bottom: 0;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+}
+.quanly .tenql{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+.matkhaumoi{
+    padding: 30px 50px 10px;
+    display: flex;
+}
+.matkhaumoi .input-label {
+    width: 170px;
+    min-width: 170px;
+    font-size: 14px;
+    color: black;
+    font-weight: 500;
+
+}
+.matkhaumoi .guima {
+    width: 137px;
+    color: black;
+    font-size: 14px;
+    background-color: #dee2e6;;
+    height: 34px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 500;
+    border: 0px;
+    cursor: pointer;
+    outline: 0px;
+    border-radius: 0px 4px 4px 0px;
+}
+.matkhaumoi > div {
+    display: flex;
+    flex: 1 1 0%;
+    position: relative;
+    z-index: 1;
+}
+.matkhaumoi > div > input{
+    width: 340px;
+    height: 34px;
+    padding: 0 10px;
+}
+.bHKvLE {
+    display: flex;
+    flex: 1 1 0%;
+}
+.bHKvLE input{
+    padding: 0 10px;
+}
+.bt-xn{
+    margin: 0 200px;
+    padding: 20px;
+}
+.bt-xn .xacnhan{
+    width: 125px;
+    height: 34px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    background: #2E5366;
+}
+/*footer*/
+.footer{
+    background-color: #2E5366 !important;
+}
+.footer-cha {
+    line-height: 40px;
+    display: table;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0px 20px 0px;
+    color: #fff;
+}
+.footer-trai {
+    line-height: 35px;
+    width: 100%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #2b5639;
+}
+.footer-phai {
+    width: 100%;
+    float: left;
+    line-height: 31px;
+    color: #fff !Important;
+    text-align: center;
+}
+img.logos {
+    border-radius: 20px;
+    margin-top: -10px;
+}
+.m1, .m2, .m3 {
+    height: 277px;
+    border-right: 1px solid #2b5639;
+    width: 33.3333%;
+    float: left;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    padding: 0px 10px;
+}   
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: -10px;
+}
+p.diachi{
+    margin: 0 0 10px;
+    font-size: 12px;
+}
+p.sub-m {
+    padding: 5px;
+    border-bottom: 1px dashed #fff;
+}
+.img-icon{
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}

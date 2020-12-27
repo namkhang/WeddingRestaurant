@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Đăng bài</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/poststyle.css">
+
+  </head>
+  <body>
+    <!-- navbar-start -->
+    <% include paticals/headerforadmin%>
+    <!-- navbar-end -->
+    <!-- main-start-->
+   
+        <form action="/admin/postnews" method="POST"
+          enctype="multipart/form-data">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 offset-3 content-NH">
+                <h2 class="col-12 text-center">Đăng tin tức</h2>
+
+
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Tên tiêu đề</label>
+                    <input class="col-9 tenNH" type="text" name="title"
+                      placeholder="Tên tiêu đề">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                    <div class="row">
+                        <label class="col-3 name">Loại hình</label>
+                        <div class="col-9 compo" style="padding:0">
+                            <select class="txt-input tenNH" style="padding: 0" name="type">
+                                <option value="Tuyển dụng">Tin tuyển dụng</option>
+                                <option value="Tin nhà hàng">Tin về nhà hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Nội dung tin tức</label>
+                    <input class="col-9 tenNH" type="text" name="Content"
+                      placeholder="Nội dung tin tức">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="field_name" style="font-size: 17px; font-weight: 600">Chọn ảnh upload</label>
+                    <input type="file" name="image" id="infile" style="margin-left: 30px;"/>
+                  </div>
+                </div>
+              </div>
+         
+            </div>
+            <!-- dang and caapj nhaapj -->
+            <div class="col-12 text-center">
+              <input class="datcho" type="submit" value="Đăng bài">
+            </div>
+
+          </div>
+        </div>
+      </form>
+
+        <!-- main-end -->
+        <!-- footer start -->
+        <% include paticals/footerforadmin%>
+        <!-- footer end -->
+      </body>
+    </html>

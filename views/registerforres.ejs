@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Sign up for Restaurant</title>
+        <link rel="stylesheet"  type="text/css"  href="/css/styleregister.css">
+    </head>
+    <body>
+        <div class="Register">
+            <h1 style="color: rgb(32, 26, 26);">Register for Restaurant</h1>
+            <div id="error" style="color: red;">
+                <%error.forEach((i) =>{%>
+       <li><%- i%> </li>
+           <%  })%>
+            </div>
+            <form action="/restaurant/registerforres" method="POST">
+                <input name="fullname" type="text" placeholder="Fullname" value="<%-fullname%>">
+                <input name="username" type="text" placeholder="Email" value="<%-username%>">
+                <input name="phone" type="text" placeholder="Phone" value="<%-phone%>">
+                <input name="password" type="password" placeholder="Password">
+                <input name="repassword" type="password" placeholder="Confirm Password">
+                <div class="signup">
+                    <input type="submit" value="Sign Up">
+                 </div>
+            </form>
+            <div class="link">
+                <a href="/restaurant"><img src="/W.WR.png" style="width: 60px; height: 60px;"></a>
+            </div>
+            </div>
+        <div id="overlay-area"></div>
+    </body>
+</html>

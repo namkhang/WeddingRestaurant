@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chỉnh sửa khách hàng</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+      shrink-to-fit=no">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous">
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/poststyle.css">
+
+  </head>
+  <body>
+    <!-- navbar-start -->
+    <%include paticals/headerforadmin%>
+    <!-- navbar-end -->
+    <!-- main-start-->
+
+        <form action="/admin/edit-cus" method="POST"  enctype="multipart/form-data" style="display:flex; align-items: center;justify-content: space-between;">
+          <div class="container">
+            <div class="row">
+              <div style="margin-left: 700px;color: #333; font-size: 18px;font-weight: 500; list-style: none;margin-bottom: 16px;color: red;">
+               <% error.forEach((i)=>{%>
+                  <li><%-i%></li>
+               <% })%>
+               
+           </div>
+              <div class="col-6 offset-3 content-NH">
+                <h2 class="col-12 text-center">Chỉnh sửa khách hàng</h2>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Username</label>
+                    <input class="col-9 tenNH" type="text" name="username" value="<%-cus.username%>"
+                      placeholder="Username">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Password</label>
+                    <input class="col-9 tenNH" type="password" name="password" 
+                      placeholder="Không thay đổi thì để trống">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Fullname</label>
+                    <input class="col-9 tenNH" type="text" name="fullname" value="<%-cus.fullname%>"
+                      placeholder="Fullname">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Phone</label>
+                    <input class="col-9 tenNH" type="text" name="phone" value="<%-cus.phone%>"
+                      placeholder="phone">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Address</label>
+                    <input class="col-9 tenNH" type="text" name="address" value="<%-cus.address%>"
+                      placeholder="address">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Gender</label>
+                    <input class="col-9 tenNH" type="text" name="gender" value="<%-cus.gender%>"
+                      placeholder="gender">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Birthday</label>
+                    <input class="col-9 tenNH" type="text" name="birthday" value="<%-cus.birthday%>"
+                      placeholder="birthday">
+                  </div>
+                </div>
+                <div class="col-12 nhaHang">
+                  <div class="row">
+                    <label class="col-3 name">Upload</label>
+                    <input type="file" name="image">
+                  </div>
+                </div>
+              </div>
+              <!-- upload img -->
+            </div>
+            <!-- dang and caapj nhaapj -->
+            <div class="col-12 text-center">
+                <input type="text" name="idcus"  value="<%-cus._id%>" style="display: none;">
+              <input class="datcho" type="submit" value="Chỉnh sửa">
+            </div>
+
+          </div>
+          <div class="container__img">
+            <img src="<%-cus.image%>" alt="" style="position: relative;right: 70px;border-radius:50%;width: 300px;height: 300px;margin-right: 36px;">
+          </div>
+      </form>
+
+        <!-- main-end -->
+        <!-- footer start -->
+        <div class="container-fluid footer">
+          <div class="row footer-cha">
+            <div class="col-3 footer-trai">
+              <img width="207" src="./img/W.WR.png" alt class="logo">
+              <p class="text">NHA HANG TIEC CUOI</p>
+              <p class="diachi">254 Phan Thanh, P.Thac Gian, Thanh Khe, Da Nang</p>
+            </div>
+            <div class="col-9 footer-phai">
+              <div class="m1">
+                <img class="img-icon"
+                  src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-fone.png">
+                <p class="sub-m" style="margin: 0px;"></p>
+                <p class="sub-m">DIEN THOAI</p>
+                <p>(028) 3963 3523</p>
+              </div>
+              <div class="m2">
+                <img class="img-icon"
+                  src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-hotline.png">
+                <p class="sub-m" style="margin: 0px;"></p>
+                <p class="sub-m">HOTLINE</p>
+                <p>0905234823</p>
+              </div>
+              <div class="m3">
+                <img class="img-icon"
+                  src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-email.png">
+                <p class="sub-m" style="margin: 0px;"></p>
+                <p class="sub-m">GMAIL</p>
+                <p>weddingrestaurant@gmail.com</p>
+              </div>
+              <p>website: weddingrestaurant.vn - © Copyright 2012 - 2019 Duy Tan</p>
+            </div>
+          </div>
+        </div>
+        <!-- footer end -->
+      </body>
+    </html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wedding Restaurant</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="/fonts/fontawesome-free-5.12.1/css/all.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/stylehomeres.css">
+</head>
+<body>
+	<input type="text"  value="<%-fullname%>" style="display: none;" id="username">
+
+<!-- navbar-start -->
+
+<% include paticals/headerforres%>
+
+
+<!-- navbar-end -->
+<!-- img start -->
+<div class="banner" style="margin-bottom : 20px">
+	<div id="carouselExampleIndicators" class="carousel slide" style="width: 100%" data-ride="carousel">
+	<ol class="carousel-indicators">
+	  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+	  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+	</ol>
+	<div class="carousel-inner" style="width: 100%">
+	  <div class="carousel-item active"style="width: 100%; height: 100%; overflow: hidden;">
+		<img src="/imageforlogin.jpg" class="d-block w-100 img-fluid"alt="first">
+	  </div>
+	  <div class="carousel-item"style="width: 100%; height: 100%; overflow: hidden;">
+		<img src="imageforreg.jpg" class="d-block w-100 img-fluid"alt="second"  >
+	  </div>
+	  <div class="carousel-item"style="width: 100%; height: 100%; overflow: hidden;">
+		<img src="Marrott HN ngoài trời.jpg" class="d-block w-100 img-fluid"alt="third">
+	  </div>
+	  <div class="carousel-item"style="width: 100%; height: 100%; overflow: hidden;">
+		  <img src="i3.1.jpg" class="d-block w-100 img-fluid"alt="third">
+		</div>
+		<div class="carousel-item"style="width: 100%; height: 100%; overflow: hidden;">
+		  <img src="Phòng đại tiệc Sông Hồng.jpg" class="d-block w-100 img-fluid"alt="third">
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	  <span class="sr-only">Next</span>
+	</a>
+  </div>
+ </div>
+
+ 		<%if(profiles.length){%>
+			<div class="dropdown" style="left: 1180px; width: 185px;margin-bottom: 20px;">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Sắp xếp theo
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="/restaurant">Cũ nhất</a>
+					<a class="dropdown-item" href="/restaurant?sorttype=new">Mới nhất</a>
+					<a class="dropdown-item" href="/restaurant?sorttype=rate">Đánh giá tốt nhất</a>
+				  </div>
+			  </div>
+		<% }%>
+
+<!-- <!- phần giữa start -->
+<div class="container banner">
+	<div class="row" >
+		<%if( !profiles.length){%>
+			<h6 style="color : red ;margin-left: 450px; margin-top: 70px;">Không có kết quả tìm kiếm phù hợp</h6>
+		<%}else{%>
+			<%profiles.forEach((i)=>{%>
+				<div class="col-3 banner-item">
+					<div class="wapitem">
+						<a class="waptop" href="/restaurant/chitiet?idprofile=<%-i._id%>" >
+							<img class="img-item"src="<%-i.Image%>" class="img-responsive lazy" alt="#">
+						</a>
+						<div class="wapfooter">
+							<a href="/restaurant/chitiet?idprofile=<%-i._id%>" target=""><%-i.Name%></a>
+							<p class="text-address notranslate"><%-i.Address%></p>
+							<p class="text-money notranslate"><%-i.hotline%></p>
+		
+						</div>
+						<div class="home-product-list">
+							<%if(i.avgrate  > 4.7 && i.avgrate <= 5.0){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+								</div>
+							<%}else if(i.avgrate  > 4.35 && i.avgrate <= 4.65){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 3.7 && i.avgrate <= 4.35){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 3.35 && i.avgrate <= 3.7){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 2.7 && i.avgrate <= 3.35){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if (i.avgrate  > 2.35 && i.avgrate <= 2.7) {%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 1.7 && i.avgrate <= 2.35){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 1.35 && i.avgrate <= 1.7){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="home-product-item__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 0.7 && i.avgrate <= 1.35){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else if(i.avgrate  > 0.35 && i.avgrate <= 0.7){%>
+								<div class="home-product-item__rating">
+									<i class="home-product-item__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}else{%>
+								<div class="home-product-item__rating">
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+									<i class="__star-gold fas fa-star-half-alt"></i>
+								</div>
+							<%}%>
+							<div class="home-product-item__text">
+								<span><%-i.avgrate%>/5</span>
+							</div>
+						</div>
+						<form action="/restaurant/chitiet" method="GET" >
+						<div class="wapbooking">
+							<input type="text" name="idprofile" value="<%-i._id%>" style="display: none;">
+							<input class="disabled-booking" type="submit" value="Chi tiết">
+						</div>
+					</form>
+					</div>
+				</div>
+	
+		<%})%>
+	
+		<%}%>
+		
+	</div>
+</div>
+<input style="display: none;" id="sorttype" type="text" name="sorttype" value="<%-sorttype%>" >
+
+		<%if(profiles.length){%>
+			<%if(sorttype == "new"){%>
+				<div  style="margin-left: 560px;margin-bottom: 30px;">
+					<ul class="pagination">
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" id="sorttype" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="First">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="<%-back%>" >
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input class="page-link" type="submit" value="Previous">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="1">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="2" >
+								<input class="page-link" type="submit" value="2">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="3" >
+								<input class="page-link" type="submit" value="3">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="4">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="<%-next%>" >
+								<input class="page-link" type="submit" value="Next">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="new" >
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="Last">
+							</form>
+				
+						</li>
+					  </ul>
+				
+				</div>
+			   <%}else if(sorttype == "rate"){%>
+				<div  style="margin-left: 560px;margin-bottom: 30px;">
+					<ul class="pagination">
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="First">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="<%-back%>" >
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input class="page-link" type="submit" value="Previous">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="1">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="2" >
+								<input class="page-link" type="submit" value="2">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="3" >
+								<input class="page-link" type="submit" value="3">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="4">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="<%-next%>" >
+								<input class="page-link" type="submit" value="Next">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="sorttype" value="rate" >
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="Last">
+							</form>
+				
+						</li>
+					  </ul>
+				
+				</div>
+			
+			  <% }else{%>
+				<div  style="margin-left: 560px;margin-bottom: 30px;">
+					<ul class="pagination">
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="First">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="<%-back%>" >
+								<input class="page-link" type="submit" value="Previous">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="1" >
+								<input class="page-link" type="submit" value="1">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="2" >
+								<input class="page-link" type="submit" value="2">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="3" >
+								<input class="page-link" type="submit" value="3">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="4">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="<%-next%>" >
+								<input class="page-link" type="submit" value="Next">
+							</form>
+				
+						</li>
+						<li class="page-item">
+							<form action="/restaurant" method="GET">
+								<input style="display: none;" type="text" name="page" value="4" >
+								<input class="page-link" type="submit" value="Last">
+							</form>
+				
+						</li>
+					  </ul>
+				
+				</div>
+			   <%}%>
+		<%}%>
+
+
+
+<!-- phần giữa end -->
+<!-- footer start -->
+
+<div class="container-fluid footer" >
+	<div class=" row footer-cha" >
+		<div class="col-3 footer-trai">
+			<img width="207" src="./img/W.WR.png" alt class="logo">
+			<p class="text">NHÀ HÀNG TIỆC CƯỚI</p>
+			<p class="diachi">254 Phan Thanh, P.Thạch Gían, Thanh Khê, Đà Nẵng</p>
+		</div>	
+		<div class="col-9 footer-phai">
+			<div class="m1">
+				<img class="img-icon"src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-fone.png">
+				<p class="sub-m" style="margin: 0px;"></p>
+				<p class="sub-m">ĐIỆN THOẠI</p>
+				<p>0799 343 172</p>
+			</div>
+			<div class="m2">
+				<img class="img-icon"src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-hotline.png">
+				<p class="sub-m" style="margin: 0px;"></p>
+				<p class="sub-m">HOTLINE</p>
+				<p>0905234823</p>
+			</div>
+			<div class="m3">
+				<img class="img-icon"src="http://tieccuoicatkhanh.vn/wp-content/uploads/2017/icon/icon-f-email.png">
+				<p class="sub-m" style="margin: 0px;"></p>
+				<p class="sub-m">GMAIL</p>
+				<p>weddingrestaurant@gmail.com</p>
+			</div>
+			<p>website: weddingrestaurant.vn - © Copyright 2012 - 2020 Duy Tan</p>
+		</div>
+	</div>
+</div>
+
+<!-- footer end -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/javascript/homeforres.js"></script>
+</body>
+</html>

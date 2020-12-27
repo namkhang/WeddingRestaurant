@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url("/imageforres.jpg") ;  
+    background-size: cover;
+    
+    font-family: sans-serif;
+}
+.Register{
+    width: 450px;
+    height: 470px;
+    color: #000;
+    top:50%;
+    left: 50%;
+    padding: 60px 30px;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px #000;
+}
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.Register input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.Register input[type=text],.Register input[type=password]{
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    font-size: 16px;
+    opacity: 1;
+    color: #000;
+}
+.signup input[type=submit]{
+    border: none;
+    outline: none;
+    height: 40px;
+    /*background: #f6648b;*/
+    background: linear-gradient(to right , #ff105f, #ffad06);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+.Register input[type=submit] :hover{
+    cursor: pointer;
+}
+.Register a{
+    font-size: 14px;
+    text-decoration: none;
+    color:#fff;
+    opacity: 0.8;
+}
+.Register a:hover{
+    color: blue;
+    opacity: 1;
+}
+.text{
+    color: #fff;
+}
+.text input{
+    width: 10%;
+    float: left;
+}
+.text a{
+    float: right;
+}
+#overlay-area{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3) ;
+    z-index: -5;
+    height: 100%;
+    width: 100%;
+    top:0;
+    bottom:0;
+}
+::-webkit-input-placeholder {
+    color : #422c33;
+   }

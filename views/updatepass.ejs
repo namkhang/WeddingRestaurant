@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Change Password</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/stylechangepass.css">
+        <link rel="stylesheet" type="text/css" href="/css/stylehome.css">
+    </head>
+    <body>
+        
+        <%include paticals/headerforcus%>
+        <form action="/updatepass" method="POST">
+        <div class="container-fluid hosome">
+            <div class="row">
+                <div class="col-2 hosocuatoi">
+                    <div class="hoso">
+                        <a class="icon-user" href="/information"><i class="fa fa-user-circle" aria-hidden="true"></i></a>
+                        <p class="nameuser"><%-fullname%></p>
+                    </div>
+                    <div class="tkcuatoi">
+                        <ul class="tkct">				
+                            <a class="taikhoan" href="/information">
+                                <i class="fa fa-user-circle" aria-hidden="true"> </i>
+                                <p>Tài Khoản Của Tôi</p>
+                            </a>			
+                            <li><a href="/information">Hồ Sơ</a></li>
+                            <li><a href="/updatepass">Đổi Mật Khẩu</a>
+                        </ul>
+                        <div class="donmua">
+                            <a class="taikhoan" href="/myorder">
+                                <i class="fa fa-book xanh" aria-hidden="true"></i>
+                                <p>Đơn Mua</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 qlhoso">
+                    <div class="quanly">
+                        <p class="hsct">Thay đổi mật khẩu</p>
+                        <p class="tenql">Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</p>
+                    </div>
+                   <% error.forEach((i)=>{%>
+                        <li style="text-align: center;
+                        list-style: none;
+                        color: red;
+                        font-size: 16px;
+                        font-weight: 500;"><%-i%></li>
+                   <% })%>
+                    <div class="matkhaumoi">
+                        <label class="input-label">Mật khẩu hiện tại</label>
+                        <div>
+                            <input name="nowpassword" type="password" name="" value="">
+                        </div>
+                    </div>
+                    <div class="matkhaumoi">
+                        <label class="input-label">Mật khẩu mới</label>
+                        <div>
+                            <input name="newpassword" type="password" name="" value="">
+                        </div>
+                    </div>
+                    <div class="matkhaumoi">
+                        <label class="input-label">Xác nhận mật khẩu</label>
+                        <div>
+                            <input name="repassword" type="password" name="" value="">
+                        </div>
+                    </div>
+                    <div class="bt-xn">
+                        <button class="xacnhan" type="submit">Xác Nhận</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+        <%include paticals/footerforcus%>
+    </body>
+</html>

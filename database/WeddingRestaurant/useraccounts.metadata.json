@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"WeddingRestaurant.useraccounts"}],"uuid":"468ab57676ee4ccea1047c2004b29277"}

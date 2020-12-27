@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- add boostrap -->
+        <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/fonts.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/solid.min.css">
+        <link href="/assets/font-awesome/css/font-awesome.min.css"
+            rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/assets/css/checkout.css">
+        <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/stylehome.css">
+        <script src="/lib/jquery-3.5.1.min.js" defer></script>
+        <title>Thanh Toán</title>
+    </head>
+    <body>
+      
+                        <% include paticals/headerforcus%>
+
+                        <div id="main-content-wp" class="checkout-page">
+                            <div class="section" id="breadcrumb-wp">
+                                <div class="wp-inner">
+                                    <div class="section-detail">
+                                        <ul class="list-item clearfix">
+                                            <li><a href="">Trang Chủ</a></li>
+                                            <li><a href="">Thanh Toán</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;color: #333; font-size: 18px;font-weight: 500; list-style: none;margin-bottom: 16px;color: red;">
+                                <%error.forEach((i)=>{%>
+                                    <li><%-i%></li>
+                               <% })%>
+                                
+                            </div>
+                            <form action="/createorder" method="POST">
+                                <div id="wrapper" class="wp-inner clearfix">
+                                    <div class="section" id="customer-info-wp">
+                                        <div class="section-head">
+                                            <h1 class="section-title">THÔNG TIN
+                                                KHÁCH HÀNG</h1>
+                                        </div>
+                                        <div class="section-detail">
+                                            <div class="form-row clearfix">
+                                                <div class="form-col fl-left">
+                                                    <label for="fullname">Họ tên <span style="color: red;">*</span></label>
+                                                    <input type="text"
+                                                        name="CustomerName"
+                                                        id="fullname" value="<%-dataCus.fullname%>">
+                                                </div>
+                                                <div class="form-col fl-right">
+                                                    <label for="email">Email <span style="color: red;">*</span></label>
+                                                    <input type="email"
+                                                        name="CustomerEmail"
+                                                        id="email" value="<%-dataCus.username%>">
+                                                </div>
+                                            </div>
+                                            <div class="form-row clearfix">
+                                                <div class="form-col fl-left">
+                                                    <label for="address">Địa chỉ <span style="color: red;">*</span></label>
+                                                    <input type="text"
+                                                        name="CustomerAddress"
+                                                        id="address" value="<%-dataCus.address%>">
+                                                </div>
+                                                <div class="form-col fl-right">
+                                                    <label for="phone">Số điện
+                                                        thoại <span style="color: red;">*</span></label>
+                                                    <input type="tel"
+                                                        name="CustomerPhone"
+                                                        id="phone" value="<%-dataCus.phone%>">
+                                                </div>
+                                                <div class="form-col fl-right">
+                                                    <label for="price" style="margin-top: 12px;">Gía/suất  <span style="color: red;">*</span></label>
+
+                                                    <%if(Division == "A"){%>
+                                                            
+                                                    <input type="tel"
+                                                    name="CustomerPrice"
+                                                    id="price" placeholder="min : <%-profile.PriceMin%> - max : <%-profile.PriceMax%>">
+                                                    <%}else{%>
+                                                        
+                                                    <input type="tel"
+                                                    name="CustomerPrice"
+                                                    id="price" placeholder="min : <%-profile.PriceMinB%> - max : <%-profile.PriceMaxB%>">
+                                                    <%}%>
+                                                </div>
+                                                <div class="form-col fl-right">
+                                                    <label for="capacity" style="margin-top: 12px;">Số chỗ đặt <span style="color: red;">*</span></label>
+                                                    
+                                                    <%if(Division  == "A"){%>
+                                                        <input type="tel"
+                                                        name="CustomerCapacity"
+                                                        id="capacity" placeholder="Sức chứa tối đa là <%-profile.Capacity%> khách" style="width: 282px;">
+                                                   <% }else{%>
+                                                    <input type="tel"
+                                                    name="CustomerCapacity"
+                                                    id="capacity" placeholder="Sức chứa tối đa là <%-profile.CapacityB%> khách" style="width: 282px;">
+                                                    <%}%>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-col">
+                                                    <label for="notes">Ghi chú</label>
+                                                    <textarea name="Note" placeholder="Nhập thời gian muốn đặt,cách trang trí ,..."></textarea>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="section" id="order-review-wp">
+                                    <div class="section-head">
+                                        <h1 class="section-title">THÔNG TIN NHÀ
+                                            HÀNG</h1>
+                                    </div>
+                                    <div class="section-detail">
+                                        <table class="shop-table">
+                                            <thead>
+                                                <tr>
+                                                    <td style="font-weight:
+                                                        bold;">Tên nhà hàng</td>
+                                                    <td style="text-align: center;font-weight: bold;">Địa chỉ </td>
+                                                    <td  style="text-align: center;font-weight: bold;" >Gía/suất</td>
+                                                    <td  style="text-align: center;font-weight: bold;">Sức chứa tối đa</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="cart-item" style="text-align: center;">
+                                                    <td class="product-name"><%-profile.Name%>
+                                                    </td>
+                                                        <td
+                                                            class="product-total" style="text-align: center;">
+                                                            <%-profile.Address%>
+                                                            </td>
+
+                                                           <% if(Division == "A"){%>
+                                                                <td
+                                                                class="product-total">
+                                                               min : <%-profile.PriceMin%> VND - max : <%-profile.PriceMax%> VND
+                                                                </td>
+                                                                <td
+                                                                class="product-total">
+                                                                <%-profile.Capacity%>
+                                                                </td>
+                                                                <input type="text" name="PriceMin" value="<%-profile.PriceMin%>" style="display: none;">
+                                                                <input type="text" name="PriceMax" value="<%-profile.PriceMax%>" style="display: none;">
+                                                                <input type="text" name="Capacity" value="<%-profile.Capacity%>" style="display: none;">
+                                                         <%   }else{%>
+                                                            <td
+                                                            class="product-total">
+                                                           min : <%-profile.PriceMinB%> VND - max : <%-profile.PriceMaxB%> VND
+                                                            </td>
+                                                            <td
+                                                            class="product-total">
+                                                            <%-profile.CapacityB%>
+                                                            </td>
+                                                            <input type="text" name="PriceMin" value="<%-profile.PriceMinB%>" style="display: none;">
+                                                            <input type="text" name="PriceMax" value="<%-profile.PriceMaxB%>" style="display: none;">
+                                                            <input type="text" name="Capacity" value="<%-profile.CapacityB%>" style="display: none;">
+                                                          <%  }%>
+                                                        </tr>
+
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr class="order-total">
+                                                            <td style="width: 100px;">Tổng tiền
+                                                                </td>
+                                                            <td><strong
+                                                                    class="product-total"><span id="totalprice"></span>
+                                                                        VND</strong></td>
+                                                            </tr>
+                                                            <tr class="order-total">
+                                                                <td style="width: 100px;">Voucher
+                                                                    </td>
+                                                                <td><strong
+                                                                        class="product-total"><span id="vouchercodesp"><%-voucher%></span> 
+                                                                            </strong></td>
+                                                                </tr>
+                                                                <tr class="order-total">
+                                                                    <td style="width: 120px;">Chiết khấu
+                                                                        </td>
+                                                                    <td ><strong
+                                                                            class="product-total"><span id="redution"><%-reduction%></span> %
+                                                                                </strong></td>
+                                                                    </tr>
+                                                                <tr class="order-total">
+                                                                    <td style="width: 100px;">Tổng tiền cần thanh toán
+                                                                        </td>
+                                                                    <td><strong
+                                                                            class="product-total"><span id="payprice"></span>
+                                                                                VND</strong></td>
+                                                                    </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                    <div
+                                                        id="payment-checkout-wp">
+                                                    </div>
+                                                    <input type="text"
+                                                    name="Idprofile"
+                                                    value="<%-profile._id%>"
+                                                style="display: none;">
+                                                    <input type="text"
+                                                        name="Idrestaurant"
+                                                        value="<%-profile.Idrestaurant%>"
+                                                    style="display: none;">
+                                                    <input type="text"
+                                                        name="NameRestaurant"
+                                                        value="<%-profile.Name%>"
+                                                    style="display: none;">
+                                                    <input type="text"
+                                                        name="RestaurantAddress"
+                                                        value="<%-profile.Address%>"
+                                                    style="display: none;">
+                                                    <input type="text" id="priceinput"
+                                                    name="PriceTotal"
+                                                    value=""
+                                                style="display: none;">
+                                                <input type="text" id=""
+                                                    name="Idvoucher"
+                                                    value="<%-idvoucher%>"
+                                                style="display: none;">
+                                                <input type="text" id="vouchercode"
+                                                    name="VoucherCode"
+                                                    value="<%-voucher%>"
+                                                style="display: none;">
+                                                <input type="text" id="redutioninput"
+                                                name="Redution"
+                                                value="<%-reduction%>"
+                                            style="display: none;">
+                                                    <input type="text" id="pricepayinput"
+                                                        name="PricePay" value=""
+                                                    style="display: none;">
+
+                                                    <input type="text" id="division"
+                                                    name="Division" value="<%-Division%>"
+                                                style="display: none;">
+                                                    <div class="place-order-wp">
+                                                        <input type="submit"
+                                                            id="order-now"
+                                                            value="Đặt lịch">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <% include paticals/footerforcus%>
+
+                                <script type="text/javascript"
+                                    src="/javascript/createorder.js"></script>
+                            </body>
+                        </html>

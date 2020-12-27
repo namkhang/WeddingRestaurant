@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Sign up</title>
+        <link rel="stylesheet" href="/css/styleregister.css"> </head>
+    <body>
+        <div class="Register">
+            <h1 style="color: rgb(32, 26, 26);">Register</h1>
+            <div id="error" style="margin-bottom: 12px;color: #c71212; font-weight: 500;font-style: italic;">
+                <%error.forEach((i)=>{%>
+                    <li><%- i%> </li>
+                        <% })%>
+                        </div>
+                        <form action="/register" method="POST">
+                            <input name="fullname" type="text"
+                                placeholder="Fullname" value="<%-fullname%>">
+                            <input name="username" type="text"
+                                placeholder="Email" value="<%-username%>">
+                            <input name="password" type="password"
+                                placeholder="Password">
+                            <input name="repassword" type="password"
+                                placeholder="Confirm Password">
+                            <div class="signup">
+                                <input type="submit" value="Sign Up">
+                            </div>
+                        </form>
+                        <div class="text">
+                            <span class="text__login">Nếu đã có tài khoản thì
+                                ... </span>
+                            <a href="/login" class="text__login1"
+                                style="display: block;
+                                margin-left: 3px;
+                                color: rgb(54, 34, 128);
+                                font-size: 16px;
+                                font-weight: 450;
+                                text-decoration: underline;">Login</a>
+                        </div>
+                    </div>
+                    <div id="overlay-area"></div>
+                </body>
+            </html>

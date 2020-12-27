@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style1.css">
+    <link rel="stylesheet" href="/assets/carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/stylechitietpage.css">
+    <title>Tin tức</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- navbar-start -->
+
+        <% include paticals/headerforres%>
+
+<!-- navbar-end -->
+        <main id="main">
+            <div class="row wrapper-content">
+                <div class="col col-9 area__news">
+                    <div class="feature__news-content">
+                        <div class="feature__news-title">
+                            <h1 class="feature__news-title-content">Tin nổi bật</h1>
+                        </div>
+                        <div class="feature__news_list">
+                            <div class="feature__news_item">
+                                <div class="feature__news_img">
+                                    <a href=""><img
+                                        src="https://pasgo.vn/Upload/anh-tin-tuc/gap-pasgo-tuyen-nhan-vien-cong-tac-vien-phong-dich-vu-khach-hang-500-1811070475.jpg"
+                                        class="feature__news_item-img" alt=""></a>
+                                </div>
+                                <div class="feature__news_item-content">
+                                    <a href="" class="feature__news-footer-item-content-link">
+                                        <h3 class="feature__news-footer-item-content-title">WeddingRestaurant tuyển CHUYÊN VIÊN QUẢN LÝ,
+                                            CHĂM SÓC ĐỐI TÁC</h3>
+                                    </a>
+                                    <p class="feature__news_item-desc">WeddingRestaurant là dự án Khởi nghiệp thú vị đang dẫn đầu
+                                        Việt Nam về dịch vụ đặt chỗ nhà hàng tiệc cưới . Hiện
+                                        PasGo đã có mạng lưới hơn 2000 nhà hàng ngon, chất lượng tạI Đà Nẵng, Hà Nội, Tp.H</p>
+                                    <div class="feature__news_item-footer">
+                                        <span class="feature__news_item-footer-date"><span
+                                                class="icon-clock"></span>12/02/2020</span>
+                                        <span class="feature__news_item-footer-category">Về chúng tôi</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feature__news_item">
+                                <div class="feature__news_img">
+                                    <a href=""><img
+                                        src="https://pasgo.vn/Upload/anh-tin-tuc/pasgo-tuyen-nhan-vien-marketing-500-1687391687.jpg"
+                                        class="feature__news_item-img" alt=""></a>
+                                </div>                  
+                                <div class="feature__news_item-content">
+                                    <a href="" class="feature__news-footer-item-content-link">
+                                        <h3 class="feature__news-footer-item-content-title">WeddingRestaurant tuyển CHUYÊN VIÊN QUẢN LÝ,
+                                            CHĂM SÓC ĐỐI TÁC</h3>
+                                    </a>
+                                    <p class="feature__news_item-desc">WeddingRestaurant là dự án Khởi nghiệp thú vị đang dẫn đầu
+                                        Việt Nam về dịch vụ đặt chỗ nhà hàng tiệc cưới . Hiện
+                                        PasGo đã có mạng lưới hơn 2000 nhà hàng ngon, chất lượng tạI Đà Nẵng, Hà Nội, Tp.H</p>
+                                    <div class="feature__news_item-footer">
+                                        <span class="feature__news_item-footer-date"><span
+                                                class="icon-clock"></span>12/02/2020</span>
+                                        <span class="feature__news_item-footer-category">Về chúng tôi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feature__news-footer">
+                            <ul class="feature__news-footer-list">
+                                
+                               <%dataTD.forEach((i)=>{%>
+                                <li class="feature__news-footer-item">
+                                    <a href="">
+                                        <div class="feature__news_img"><img
+                                            src="<%-i.image%>"
+                                            class="feature__news-footer-item-img" alt="">
+                                        </div>
+                                    </a>
+                                    <div class="feature__news-footer-item-content">
+                                        <a href="" class="feature__news-footer-item-content-link">
+                                            <h3 class="feature__news-footer-item-content-title"><%-i.title%></h3>
+                                        </a>
+                                        <div class="feature__news_item-footer">
+                                            <span class="feature__news_item-footer-date"><span
+                                                    class="icon-clock"></span><%-i.time%></span>
+                                            <span class="feature__news_item-footer-category"><%-i.type%></span>
+                                        </div>
+                                        <div class="feature__news-footer-item-contentitem">
+                                            <p class="feature__news-footer-item-innercontent"><%-i.Content%> </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <%})%>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="topic__news">
+                        <div class="feature__news-title">
+                            <h1 class="feature__news-title-content">Tin nhà hàng</h1>
+                        </div>
+                        <ul class="feature__news-footer-list">
+                           
+                           <% dataNH.forEach((i)=>{%>
+                            <li class="feature__news-footer-item">
+                                <a href=""><img
+                                        src="<%-i.image%>"
+                                        class="feature__news-footer-item-img" alt=""></a>
+                                <div class="feature__news-footer-item-content">
+                                    <a href="" class="feature__news-footer-item-content-link">
+                                        <h3 class="feature__news-footer-item-content-title"><%-i.title%></h3>
+                                    </a>
+                                    <div class="feature__news_item-footer">
+                                        <span class="feature__news_item-footer-date"><span
+                                                class="icon-clock"></span><%-i.time%></span>
+                                        <span class="feature__news_item-footer-category"><%-i.type%></span>
+                                    </div>
+                                    <div class="feature__news-footer-item-contentitem">
+                                        <p class="feature__news-footer-item-innercontent"><%-i.Content%> </p>
+                                    </div>
+                                </div>
+                            </li>
+                           <% })%>
+                          
+                        </ul>
+                    </div>
+                </div>
+                <div class="col col-3 sidebar__left">
+                    <div class="most_viewed_articles">
+                        <div class="most_viewed_articles-title">
+                            <p class="most_viewed_articles-title-text">Nhà hàng mới đăng</p>
+                        </div>
+                        <ul class="most_viewed_articles-list">
+                            <%topNew.forEach((i)=>{%>
+                                <li class="most_viewed_articles-item">
+                                    <a href="/chitiet?idprofile=<%-i._id%>"><img
+                                            src="<%-i.Image%>"
+                                            class="most_viewed_articles-item-img" alt="" width="120", height="73"></a>
+                                    <a href="/chitiet?idprofile=<%-i._id%>">
+                                        <p class="most_viewed_articles-item-title"><%-i.Name%></p>
+                                    </a>
+                                </li>
+                                <% })%>
+                        </ul>
+                    </div>
+                    <div class="hot-recomment">
+                        <div class="most_viewed_articles-title">
+                            <p class="most_viewed_articles-title-text">Nhà hàng hot</p>
+                        </div>
+                        <ul class="most_viewed_articles-list">
+                            <%topFive.forEach((i)=>{%>
+                            <li class="most_viewed_articles-item">
+                                <a href="/chitiet?idprofile=<%-i._id%>"><img
+                                        src="<%-i.Image%>"
+                                        class="most_viewed_articles-item-img" alt="" width="120", height="73"></a>
+                                <a href="/chitiet?idprofile=<%-i._id%>">
+                                    <p class="most_viewed_articles-item-title"><%-i.Name%></p>
+                                </a>
+                            </li>
+                            <% })%>
+                            
+                        </ul>
+                    </div>
+                    <div class="adv">
+                        <div class="adv-item">
+                            <a href="">
+                                <img class="adv-img"
+                                    src="https://invietlong.com/data/images/to-roi-nha-hang-king-long.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="adv-item">
+                            <a href="">
+                                <img class="adv-img"
+                                    src="https://thietkekhainguyen.com/wp-content/uploads/2017/04/poster-nhahang-Lakai-01.jpg"
+                                    alt="">
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="recomment-restaurants">
+                <div class="owl-carousel">
+                    <div class="restaurant-item">
+                        <a href=""><img class="information-img"
+                                src="https://pasgo.vn/Upload/anh-quang-cao/hai-san-sabaku-khong-gian-hien-dai-va-du-cac-mon-ngon-tu-hai-san-tuoi-song-300-9603888378.jpg"
+                                alt=""></a>
+                        <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                            sản tươi sống</a></p>
+                    </div>
+                    <div class="restaurant-item">
+                        <a href=""><img
+                                src="https://pasgo.vn/Upload/anh-quang-cao/dasushi-su-kinh-trong-huu-hao-voi-van-hoa-am-thuc-xu-phu-tang-300-2288261167.jpg"
+                                alt=""></a>
+                                <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                                    sản tươi sống</a></p>
+                    </div>
+                    <div class="restaurant-item">
+                        <a href=""><img
+                                src="https://pasgo.vn/Upload/anh-quang-cao/am-thuc-xeo-hoang-van-thu-mon-an-dam-da-vi-que-huong-300-4110025188.jpg"
+                                alt=""></a>
+                                <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                                    sản tươi sống</a></p>
+                    </div>
+                    <div class="restaurant-item">
+                        <a href=""><img
+                                src="https://pasgo.vn/Upload/anh-quang-cao/nha-hang-thai-market-huong-vi-chuan-muc-xu-chua-vang-300-4110102189.jpg"
+                                alt=""></a>
+                                <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                                    sản tươi sống</a></p>
+                    </div>
+                    <div class="restaurant-item">
+                        <a href=""><img
+                                src="https://pasgo.vn/Upload/anh-quang-cao/nha-hang-dac-san-tran-hai-phong-noi-hoi-tu-net-dac-sac-cua-am-thuc-xu-quang-nam-da-nang-300-4109925187.jpg"
+                                alt=""></a>
+                                <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                                    sản tươi sống</a></p>
+                    </div>
+                    <div class="restaurant-item">
+                        <a href=""><img
+                                src="https://pasgo.vn/Upload/anh-quang-cao/the-pizza-company-co-op-mart-da-nang-huong-vi-pizza-y-chuan-muc-300-2288270169.jpg"
+                                alt=""></a>
+                                <p class="infomation-restaurant"><a href="">Hải Sản SABAKU – Không gian hiện đại và đủ các món ngon từ hải
+                                    sản tươi sống</a></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+<!-- footer start -->
+<% include paticals/footerforres%>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/carousel/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-carousel');
+            owl.owlCarousel({
+                items: 4,
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true
+            });
+            $('.play').on('click', function () {
+                owl.trigger('play.owl.autoplay', [2000])
+            })
+            $('.stop').on('click', function () {
+                owl.trigger('stop.owl.autoplay')
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign in for admin</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class="login">
+            <img src = "person-icon.png" class="avatar">
+            <h1 style="color: rgb(30, 10, 56);">Sign in for Admin</h1>
+            <div>
+                <% error.forEach((i)=>{%>
+                 <li><%-i%></li>
+                 <%})%>
+             </div>
+            <form action="/admin" method="POST">
+                <input name="username"   type="text" placeholder="Username" value="<%-username%>">
+                <input name="password" type="password" placeholder="Password" style="margin-top: 20px;">
+                <div class="submit" style="margin-top: 50px;">
+                  <input type="submit" value="Login">
+                  </div>
+                </form>
+          
+        
+        </div>
+        <div id="overlay-area"></div>
+    </body>
+</html>

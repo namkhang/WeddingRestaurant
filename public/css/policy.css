@@ -1,0 +1,31 @@
+#main{
+    width: 1180px;
+    margin: 0 auto;
+}
+.text ul li {
+    display: block;
+    list-style: none;
+    padding-left: 25px;
+}
+.text ol li, .text ul li {
+    line-height: 1.5rem;
+    min-height: 1.5rem;
+    font-weight: 300;
+    color: #282b3e;
+    position: relative;
+    margin-bottom: 10px;
+}
+.text ul li:before {
+    content: "\25A0";
+    color: #00bf66;
+    margin-right: .875rem;
+    position: absolute;
+    left: 0;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html[lang^=vi] body *, html[lang^=vi] body .titletext {
+    font-family: 'Manulife JH Sans',sans-serif;
+}
+

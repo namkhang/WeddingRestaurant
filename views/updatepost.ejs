@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cập nhật bài đăng</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/poststyle.css">
+    <script src="/javascript/updatepost.js" defer></script>
+	
+</head>
+<body>
+<!-- navbar-start -->
+<% include paticals/headerforres%>
+<!-- navbar-end -->
+<!-- main-start-->
+  <% if(!profile){%>
+    <h6 style="color : red ;margin-left: 600px;margin-top: 187px;margin-bottom: 200px;">Nhà hàng của bạn hiện chưa có bài đăng nào</h6>
+  <% }else{%>
+
+    <div class="container">
+        <form action="/restaurant/updatepost" method="POST"  enctype="multipart/form-data">
+        <div class="row">
+          <div style="margin-left: 550px;color: #333; font-size: 18px;font-weight: 500; list-style: none;margin-bottom: 16px;color: red;">
+            <%error.forEach((i)=>{%>
+             <li><%-i%></li>
+           <% })%>
+           
+       </div>
+            <div class="col-6 offset-3 content-NH">
+                <h2 class="col-12 text-center">Cập nhật bài đăng</h2>
+                    <div class="col-12 nhaHang ">
+                        <div class="row">
+                            <label class="col-3 name">Tên nhà hàng</label>
+                            <input class="col-9 tenNH" type="text" name="Name" placeholder="Tên nhà hàng" value="<%-profile.Name%>">
+                        </div>
+                    </div>
+                    <div class="col-12 nhaHang">
+                        <div class="row">
+                            <label class="col-3 name">Địa chỉ</label>
+                            <input class="col-9 tenNH" type="text" name="Address" placeholder="Địa chỉ" value="<%-profile.Address%>">
+                        </div>
+                    </div>
+                    <div class="col-12 nhaHang">
+                      <div class="row">
+                          <label class="col-3 name">Số điện thoại</label>
+                          <input class="col-9 tenNH" type="text" name="hotline" placeholder="Số điện thoại" value="<%-profile.hotline%>">
+                      </div>
+                  </div>
+                    <div class="col-12 nhaHang">
+                      <div class="row">
+                          <label class="col-3 name">Thời gian trống</label>
+                          <input class="col-9 tenNH" type="text" name="TimeFree" placeholder="Thời gian trống" value="<%-profile.TimeFree%>">
+                      </div>
+                  </div>
+                  <div class="col-12 nhaHang">
+                    <div class="row">
+                      <label class="col-3 name">Đơn giá (A)</label>
+                      <div class="col-9 dongia">
+                        <div class="row">
+                          <label class="col-2 nameMin">Min</label>
+                          <input class="col-3 dmin" type="text" id="min"
+                            name="PriceMin" value="<%-profile.PriceMin%>">
+                          <label class="col-2 text-center">-</label>
+                          <label class="col-2 nameMin">Max</label>
+                          <input class="col-3 dmin" type="text" id="max"
+                            name="PriceMax" value="<%-profile.PriceMax%>">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 nhaHang">
+                    <div class="row">
+                      <label class="col-3 name">Sức chứa (A)</label>
+                      <input class="col-4 dmin" type="text" name="Capacity" value="<%-profile.Capacity%>">
+                    </div>
+                  </div>
+                  <div class="col-12 nhaHang">
+                    <div class="row">
+                      <label class="col-3 name">Đơn giá (B)</label>
+                      <div class="col-9 dongia">
+                        <div class="row">
+                          <label class="col-2 nameMin">Min</label>
+                          <input class="col-3 dmin" type="text" id="min"
+                            name="PriceMinB" value="<%-profile.PriceMinB%>">
+                          <label class="col-2 text-center">-</label>
+                          <label class="col-2 nameMin">Max</label>
+                          <input class="col-3 dmin" type="text" id="max"
+                            name="PriceMaxB" value="<%-profile.PriceMaxB%>">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 nhaHang">
+                    <div class="row">
+                      <label class="col-3 name">Sức chứa (B)</label>
+                      <input class="col-4 dmin" type="text" name="CapacityB" value="<%-profile.CapacityB%>">
+                    </div>
+                  </div>
+                    <div class="col-12 nhaHang">
+                        <div class="row">
+                            <label for="mota" class="col-3 name">Mô tả</label>
+                            <textarea class="col-9 motaNH" id="mota" name="Description" rows="4" cols="50" style="height: 200px;" >
+                                <%-profile.Description%>
+                              </textarea>
+                          </div>
+                    </div>
+                    
+            </div>
+            <!-- upload img -->
+            <div class="col-10 offset-1 file-upload">
+                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+                <div class="row imgNH">
+                    <div class="col-4 image-upload-wrap">
+                        <input class="file-upload-input" name="image" type='file' accept="image/*" />
+                        <div class="drag-text">
+                            <h3>add Image</h3>
+                        </div>
+                    </div>
+                    
+                     <div class="col-4 image-upload-wrap">
+                        <input class="file-upload-input" name="image" type='file' accept="image/*" />
+                        <div class="drag-text">
+                            <h3>add Image</h3>
+                        </div>
+                    </div>
+                    
+                     <div class="col-4 image-upload-wrap">
+                        <input class="file-upload-input" name="image" type='file'  accept="image/*" />
+                        <div class="drag-text">
+                            <h3>add Image</h3>
+                        </div>
+                    </div>
+                    <div class="col-4 image-upload-wrap">
+                        <input class="file-upload-input" name="image" type='file' accept="image/*" />
+                        <div class="drag-text">
+                            <h3>add Image</h3>
+                        </div>
+                    </div>
+                    
+                     <div class="col-4 image-upload-wrap">
+                        <input class="file-upload-input" name="image" type='file' accept="image/*" />
+                        <div class="drag-text">
+                            <h3>add Image</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="col-4 image-upload-wrap">
+                      <input class="file-upload-input" name="image" type='file'
+                        accept="image/*" />
+                      <div class="drag-text">
+                        <h3>add Image</h3>
+                      </div>
+                    </div>
+        
+                  </div>
+                    
+                </div>
+            </div>     
+                <input class="datcho" type="submit" value="Cập nhật" style="margin-left:600px; ">
+        </div>   
+    </form>
+        <div class="col-12 text-center" style="margin-left: 450px;top: -32px; width:300px ;">
+            <form id="form" action="/restaurant/removepost" method="POST">
+            <input class="datcho" type="submit" value="Xóa bài đăng" >
+        </form>
+        </div>
+
+
+  <% }%>
+
+<!-- main-end -->
+<!-- footer start -->
+<% include paticals/footerforres%>
+<!-- footer end -->
+</body>
+</html>
