@@ -97,8 +97,8 @@ io.on("connection", (socket) => {
       let getmonth = parseInt(date.getMonth()) + 1;
       let timenow = `${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${getmonth}/${date.getFullYear()}`;
       let Chat = [{idsent : data.idsent , Name : data.Name , chatcontent : data.chatcontent , time : timenow}];
-      await db.chat.create({IdRestaurant : data.IdRestaurant , IdCustomer : data.IdCustomer , CusName : data.CusName , ResName : data.ResName , imageCus : dataCus.image ,imageRes : dataRes.Image, Chat : Chat});
-      let newData = await db.chat.findOne({IdCustomer : data.IdCustomer , IdRestaurant : data.IdRestaurant});
+      let newData = await db.chat.create({IdRestaurant : data.IdRestaurant , IdCustomer : data.IdCustomer , CusName : data.CusName , ResName : data.ResName , imageCus : dataCus.image ,imageRes : dataRes.Image, Chat : Chat});
+   /*    let newData = await db.chat.findOne({IdCustomer : data.IdCustomer , IdRestaurant : data.IdRestaurant}); */
       io.sockets.in(socket.room).emit("sever-sent-message" , newData);
     }
     

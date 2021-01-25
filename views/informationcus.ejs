@@ -10,6 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/styleinformation.css">
 	<link rel="stylesheet" type="text/css" href="/css/stylechitietpage.css">
+	<script src="/javascript/uploadfile.js" defer></script>
 </head>
 <body>
 <!-- navbar-start -->
@@ -223,8 +224,8 @@
 				</div>
 				<div class="col-4 text-center">
 					<div class="formtt anhuser" >
-                        <img  src="<%-profile.image%>" width="150px" height="150px"  style="border-radius: 75px; margin-bottom: 20px;" ></img>
-                        <input type="file" name="image" class="chonanh">
+                        <img id="image"  src="<%-profile.image%>" width="150px" height="150px"  style="border-radius: 75px; margin-bottom: 20px;" ></img>
+                        <input id="fileupload" type="file" name="image" class="chonanh">
 						<label>Dung lượng file tối đa 1MB</label>
 						<label>Định dạng:.JPEG, .PNG</label>
 					</div>

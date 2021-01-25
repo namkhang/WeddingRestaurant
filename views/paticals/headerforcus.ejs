@@ -4,7 +4,7 @@
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	  </button>
 	     <form class="form-inline my-2 my-lg-0" action="/search" method="GET">
-		  <input class="form-control mr-sm-3" type="search" placeholder="Tìm kiếm" aria-label="Search" name="q" style="width: 250px;">
+		  <input id="search" onkeyup="result()" c class="form-control mr-sm-3" type="text" placeholder="Tìm kiếm" aria-label="Search" name="q" style="width: 250px;">
 		  <button type="submit"><i class="fa fa-search"
 			aria-hidden="true"></i></button>
 	    </form>

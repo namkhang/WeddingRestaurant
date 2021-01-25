@@ -685,6 +685,13 @@ router.get("/search", async (req, res) => {
   });
 });
 
+router.post("/search" , async (req,res)=>{
+  let query = req.body.query.toLowerCase();
+  let data = await database.profile.find();
+  let dataSearch = data.filter(i => i.Name.toLowerCase().indexOf(query) > -1 || i.Address.toLowerCase().indexOf(query) > -1)
+  res.json(dataSearch);
+})
+
 router.post("/ghinho", async (req, res) => {
   let idprofile = req.body.idprofile;
   let temp = 0 ; //tạo biến đếm (nó sẽ tăng khi ghi nhớ của người dùng đã có );
@@ -1082,22 +1089,25 @@ router.get("/chatonline", async (req, res) => {
     if(req.isAuthenticated()){
       login = 'passport';
     }
+  
     let idcus = req.query.idcus;
     let idres = req.query.idres;
     let datares = await database.accountRes.findOne({_id : idres});
     let data = await database.chat.findOne({IdCustomer : idcus , IdRestaurant : idres});
-    res.render("../views/chat.ejs", {
-      chat: data,
-      idres : idres ,
-      resinformation : datares,
-      ghinho: req.session.ghinho,
-      userID: req.session.userid,
-      fullname: req.session.fullname,
-      login: login,
-    });
-  } else {
-    res.redirect("/login");
-  }
+      res.render("../views/chat.ejs", {
+        chat: data,
+        idres : idres ,
+        resinformation : datares,
+        ghinho: req.session.ghinho,
+        userID: req.session.userid,
+        fullname: req.session.fullname,
+        login: login,
+      });
+    }
+   else{
+  res.redirect("/");
+}
+    
 });
 
 router.get("/listchat" , async (req,res) =>{
@@ -1184,6 +1194,24 @@ router.get("/logout", async (req, res) => {
   await req.session.destroy();
   res.redirect("/");
 });
+
+/* router.get("/test" , async (req,res)=>{
+  let idprofile = "5f3cb459db4aac2e7c352531";
+  let data = await database.profile.findOne({_id : idprofile});
+  res.json(data);
+})
+
+router.post("/test" , async (req,res)=>{
+  let idprofile = req.body.idprofile;
+  let data = await database.profile.findOne({_id : idprofile});
+  res.json(data);
+}) */
+
+router.get("/test" , async (req,res)=>{
+  let id = req.query.idprofile;
+  let data = await database.profile.findOne({_id  : id});
+  res.json(data);
+})
 
 
 module.exports = router;
