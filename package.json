@@ -10,6 +10,7 @@
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "email-validator": "^2.0.4",
     "express": "~4.16.1",
@@ -30,6 +31,7 @@
     "request": "^2.88.2",
     "shortid": "^2.2.15",
     "socket.io": "^2.3.0",
+    "stripe": "^8.132.0",
     "vn-payments": "^1.1.0"
   }
 }

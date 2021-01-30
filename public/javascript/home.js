@@ -12,7 +12,7 @@ var ghinho = document.getElementById("ghinho");
 var btnMemory = document.getElementsByClassName("btnMemory");
 var search = document.getElementById("search");
 var row = document.getElementById("row");
-/* const fetch = require("node-fetch"); */
+var userId = document.getElementById("userid");
 
 if(sorttype.value == "" || !sorttype.value)
 {
@@ -283,3 +283,7 @@ function removeMemo()  // dùng để cập nhật lại btnRemoveMemo vì ban �
 }
 removeMemo(); //để update lại mỗi lần người dùng f5
 
+ socket.emit("join-room" , userId.value);
+ socket.on("server-destroy" , (data)=>{
+    alert(data);
+ })

@@ -12,7 +12,30 @@ var validator = require("email-validator");
 var request = require("request");
 var shortid = require("shortid");
 var multer = require("multer");
-var upload = multer({ dest: "./public/upload" });
+
+require("dotenv").config();
+
+
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const stripePublicKey = process.env.STRIPE_PUBLIC_KEY ;
+var stripe = require('stripe')(stripeSecretKey);
+
+var middleware = require("../middleware/middleware");
+/* var upload = multer({dest : './public/upload'}); */
+var upload = multer({
+  storage: multer.memoryStorage(),
+  fileFilter: (req, file, callback) => { // filFilter nó sẽ kiểm soát việc file nào nên tải lên và file nào không 
+    if (!file.mimetype.match(/jpe|jpeg|png|gif$i/)) { // Nếu không đúng loại file ảnh thì sẽ không cho upload file và ngược lại 
+      callback(new Error('File is not supported'), false)
+      return
+    }
+
+    callback(null, true)
+  },
+  limits: {
+    fileSize:  1024 * 1024 * 5,
+  }
+})
 
 const { route } = require("./users");
 
@@ -37,9 +60,11 @@ router.use(passport.session());
 
 router.get("/", async (req, res) => {
   let login ="";
+  let userid = "";
   if(req.session.userid)
   {
     login = 'yes';
+    userid = req.session.userid;
   }
   if(req.isAuthenticated())
   {
@@ -78,6 +103,7 @@ router.get("/", async (req, res) => {
         ghinho: req.session.ghinho,
         login: login,
         sorttype: "new",
+        userid : userid,
         next: next,
         back: back,
       });
@@ -88,6 +114,7 @@ router.get("/", async (req, res) => {
       profiles: data.slice(start, end),
       fullname: req.session.fullname,
       ghinho: req.session.ghinho,
+      userid : userid,
       login: login,
       sorttype: "rate",
       next: next,
@@ -100,6 +127,7 @@ router.get("/", async (req, res) => {
         fullname: req.session.fullname,
         ghinho: req.session.ghinho,
         login: login,
+        userid : userid,
         sorttype: "",
         next: next,
         back: back,
@@ -399,10 +427,8 @@ router.get("/information", async (req, res) => {
 
 router.post("/information", upload.single("image"), async (req, res) => {
   if (req.session.userid) {
-    let image = "";
-    if(req.file){
-      image = req.file.path.substring(6);
-    }     
+    let parseBase64 = req.file.buffer.toString('base64');
+    let image = `data:image/jpg;base64,${parseBase64}`;     
     let {
       fullname,
       phone,
@@ -423,7 +449,7 @@ router.post("/information", upload.single("image"), async (req, res) => {
         await database.accountgmail.update({id : req.session.userid} , {fullname: fullname,phone: phone,gender: gender,address: address, birthday: birthday,  image: image});
     }
     else{
-      await database.account.update(
+      await database.account.updateOne(
         { _id: req.session.userid },
         {
           fullname: fullname,
@@ -878,6 +904,7 @@ router.get("/myorder", (req, res) => {
           ghinho: req.session.ghinho,
           fullname: req.session.fullname,
           login: login,
+          stripePublicKey : stripePublicKey
         });
       }
     );
@@ -885,6 +912,23 @@ router.get("/myorder", (req, res) => {
     res.redirect("/login");
   }
 });
+
+
+router.post("/payment" , (req,res)=>{
+  stripe.charges.create({
+    amount: req.body.price,
+    currency: 'usd',
+    description : 'giao dich de qua',
+    source: req.body.stripeTokenId
+ 
+  }).then(function() {
+    console.log('Charge Successful')
+    res.json({ message: 'Bạn vừa thanh toán thành công <3' })
+  }).catch(function() {
+    console.log('Charge Fail')
+    res.status(500).end()
+  })
+})
 
 router.get("/createorder", async (req, res) => {
   let login ="";
@@ -1139,30 +1183,12 @@ router.get("/listchat" , async (req,res) =>{
   }
 })
 
-router.get("/policy", (req, res) => {
-  let login = "";
-  if(!req.session.ghinho)
-  {
-    req.session.ghinho = [];
-  }
-  if(req.session.userid)
-  {
-    login = 'yes';
-  }
-  if(req.isAuthenticated()){
-    login = 'passport';
-  }
-  res.render("../views/policy.ejs" , {fullname : req.session.fullname , login : login, ghinho : req.session.ghinho});
+router.get("/policy",middleware.notImportant, (req, res) => {
+  
+  res.render("../views/policy.ejs" , {fullname : req.session.fullname , login : res.locals.login, ghinho : req.session.ghinho});
 });
 
-router.get("/news", async (req, res) => {
-  let login = "";
-  if (req.session.userid) {
-    login = "yes";
-  }
-  if(req.isAuthenticated()){
-    login = 'passport';
-  }
+router.get("/news",middleware.notImportant, async (req, res) => {
   if(!req.session.ghinho)
   {
     req.session.ghinho = [];
@@ -1174,7 +1200,7 @@ router.get("/news", async (req, res) => {
   let dataNH = await database.news.find({type : "Tin nhà hàng"});
 
   res.render("../views/news.ejs", {
-    login: login,
+    login: res.locals.login,
     ghinho: req.session.ghinho,
     fullname: req.session.fullname,
     dataTD : dataTD ,

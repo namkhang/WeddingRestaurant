@@ -15,12 +15,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/css/stylechitietpage.css">
+    <script src="https://checkout.stripe.com/checkout.js" defer></script>
+    <script type="text/javascript" src="/javascript/myorder.js" defer ></script>
     
     <title>Đơn hàng của tôi</title>
 </head>
 <body>
     <% include paticals/headerforcus%>
     
+<input type="text" id="idStripe" value="<%-stripePublicKey%>" style="display: none;">
+
     <main class="main-container" style="width: 1300px;">
         <div class="row" style="width: 100%;">
             <div class="col col-lg-10 col-md-12 col-sm-12 col-12">
@@ -42,6 +46,7 @@
                                 <th style="text-align: center;"  scope="col">Trạng thái</th>
                                 <th style="text-align: center;"  scope="col">Time</th>
                                 <th style="text-align: center;"  scope="col">Ghi chú</th>
+                                <th style="text-align: center;"  scope="col">Thao tác</th>
                             </tr>
                         </thead>
                         <tbody >
@@ -67,6 +72,7 @@
                                 <td><span class="badge badge-warning" style="color: red; background-color: whitesmoke; font-size:small;"><%-i.Orderstatus%></span></td>
                                 <td><%-i.Timeorder%></td>
                                 <td style="width: 100px;"> <%-i.Note%> </td>
+                                <td style="width: 100px;">  <button type="submit" value="<%-i.PricePay%>"  class="btn-payment btn-success btn-sm rounded-0 text-white"  data-toggle="tooltip" data-placement="top" style="width: 40px;" ><i class="fas fa-check-square"></i></button> </td>
                             </tr>   
                            <% })%>
                                 
@@ -83,7 +89,7 @@
 
     <% include paticals/footerforcus%>
     
-    <script type="text/javascript" src="/javascript/myorder.js" ></script>
+    
     <script src="/assets/js/jquery-3.5.1.min.js"></script>
     <script src="/assets/js/carousel/owl.carousel.min.js"></script>
     <script type="text/javascript">

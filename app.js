@@ -61,8 +61,10 @@ io.on("connection", (socket) => {
   console.log(socket.id);
 
   socket.on("join-room" , (data)=>{
+    socket.leaveAll();
     socket.join(data);
     socket.room = data;
+    console.log(socket.room);
   })
 
   socket.on("sent-message", async (data) => {
@@ -109,6 +111,11 @@ io.on("connection", (socket) => {
       }
     ); */
   });
+  socket.on("destroy-order" , (data)=>{
+    console.log("da gui yeu cau xoa");
+    console.log(socket.room); // không tồn tại vì người dùng gửi yêu cầu này không có trong room nào(mỗi socket room tương ứng vs 1 người dùng)
+    io.sockets.in(data).emit("server-destroy","don hang cua ban da bi xoa");
+  })
 
 /*   socket.on("user-online", (data) => {
     if (userOnline.indexOf(data) > -1) {
